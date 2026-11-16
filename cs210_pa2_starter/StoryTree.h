@@ -38,11 +38,30 @@ private:
         }
     }
 
-    // TODO 8: the most choices a player can make on the way to an ending,
+    // TODO 8: the most choices a player can make on the way to an ending, -----------DONE-----------
     // starting at scene. A single ending scene has height 0.
     // An empty story has height -1.
     int height(Scene<T>* scene) const {
-        return -1;
+        if (scene == nullptr) {
+            return -1;
+        }
+        else {
+            int highest = -1;
+            int temp_height = 0;
+            temp_height = height(scene->getChoice(0));
+            if (temp_height > highest) {
+                highest = temp_height;
+            }
+            temp_height = height(scene->getChoice(1));
+            if (temp_height > highest) {
+                highest = temp_height;
+            }
+            temp_height = height(scene->getChoice(2));
+            if (temp_height > highest) {
+                highest = temp_height;
+            }
+            return 1 + highest;
+        }
     }
 
 public:
@@ -65,9 +84,11 @@ public:
         return root_ == nullptr;
     }
 
-    // TODO 9: free every scene in the story and leave the tree empty.
+    // TODO 9: free every scene in the story and leave the tree empty. -----------DONE-----------
     // Hint: what does deleting a Scene already do for you?
     void clear() {
+        delete root_;
+        root_ = nullptr;
     }
 
     int countScenes() const {
