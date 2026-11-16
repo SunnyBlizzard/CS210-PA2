@@ -20,16 +20,25 @@ TODOS
    9. O(n)
         This is nearly identical to TODO 2, its effectivity a recursive call of delete on each scene, moving down through the tree deleting everything on its way. We have to set root_ to nullptr after to ensure our pointer isn't dangling and pointing to freed memory. This leaves the tree "empty" as the instructions say to
    10. O(N)
-      
-   11. O()
-   12. O()
-   13. O()
-   14. O()
-   15. O()
-   16. O()
-   17. O()
-   18. O()
-   19. O()
+      Load reads the story file and creates the scenes with readScene. it is O(N) because it creates every scne once. Load handles bad input and file read errors as well as sets starting hp. 
+   11. O(1)
+        readScene grabs each of the fields form the text file and creates a new moment and scene with them assuming they are valid. O(1) because it only makes one scene at a time.
+   12. O(1)
+        asks for player input. O(1) because it's time is not dependent on the number of scnes.
+   13. O(N)
+        walks the single path chosen by the player. Printing all the values and scene info as its updated. asks for player input and handles end conditions. O(N) becuase the player coudl pick the longest possible path. 
+   14. O(N)
+        makes 3 full traversals of the tree, printing our helper methods for countScenes. CountEndings and height. 3n is still o(n)
+   15. O(N)
+        O(N) because it makes one call to printEndings which is O(N). 
+   16. O(N)
+        O(n) same time complexity as countScenes, but it only increments if its an ending not all scnes. 
+   17. O(N)
+        O(N) is worst case, the bestloot path could be the longest path as well so all scenes have to get checked. We just compare the highest loot of our next posible choice and chose that one. tie breakers go to the lowest numbered chocie.
+   18. O(N)
+        O(N) because we have to check all the nodes to find the best path. BestLoot iteates through the tree getting back loot from possilbe children choiced and then builds the correct path and total loot on the winddown stage. 
+   19. O(N)
+        calls bestLoot once on root to use the entire tree as bestLoot's subtree for searching. O(N) beacause bestLoot checks all the scnes once. 
 
 
 2. Why does each scene allocate exactly numChoices slots instead of declaring Scene<T>*
@@ -43,13 +52,21 @@ First we iterate though the array, freeing all the choices (children) of the cur
 4. Show the path greedy took and the path optimal took on your story, with the loot for each.
    Explain why greedy lost. If greedy did not lose, change your story until it does, and explain
    what you changed.
-
+   Greedy advisor
+     Path: 1-1
+     Loot: 5
+     Result: died
+   Optimal advisor
+     Path: 2-2-1-1-2
+     Loot: 12
+     Result: reached an ending
+Greedy snoozes gaining 2 loot over the wake-up of 0 loot. greedy then chooses to turn off the alarm for 3 loot over snooze again of 1 loot. This path kills you and since greedy dosent care about hp or look more than one step ahead, it blindly walked down a bad path. I increased the loot to snoozing the alarm since more sleep is valuable, origianlly it was 0 loot and greedy only picked it because of the ordeirng of choices. 
 
 5. bestLoot tries every path, yet it runs in O(n) time. Explain why it is not exponential, using
    what you know about paths and leaves in a tree.
-
+Since we iterate through the tree child by child with recursion, we only check each node once, combining values from later calls to build out path up the tree. We don't have to physcially walk each possible path every time because the iteration effectively lets each unique path share the calculation of each node. 
 
 6. Which List methods does your game use, and why? What does one search cost as the bag
    grows?
-
+I used search to detrech exisitng items in the inventory. I used addFront to add new items to the inventory. I used size in the print to say how many items are in the inventory. I used print to print the contents of the inventory. Search is linear growth, reliant on the number of items, if n is num items were O(n) is n is scnes were o(1)
 

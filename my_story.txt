@@ -1,0 +1,90 @@
+START_HP 10
+SCENE Scene You're woken up by your alarm clock.
+HP 0
+LOOT 0
+ITEM none
+CHOICES 2
+LABEL Hit snooze and get some extra zzzzzs.
+  SCENE zzzzzzzzzzzzzzz... RING RING
+  HP -5
+  LOOT 2
+  ITEM none
+  CHOICES 2
+  LABEL Hit Turn off the alarm. I'll wake up when I'm ready.
+    SCENE zzzzzzzzzzzzzzzzz.... zzzzzzzzzzzzzzzzzzzz..... zzzzzzzzzzzzzzzzzzzz.....
+    HP -5
+    LOOT 3
+    ITEM none
+    CHOICES 0
+  LABEL Hit snooze just one more time.
+    SCENE zzzzzzzzzzzzzzz... RING RING
+    HP -3
+    LOOT 1
+    ITEM none
+    CHOICES 1
+    LABEL Get out of bed.
+      SCENE Now you've missed the bus. Good luck getting to school.
+      HP 1
+      LOOT 0
+      ITEM none
+      CHOICES 0
+LABEL Get out of bed.
+  SCENE Yawn. Time to start the day.
+  HP 0
+  LOOT 0
+  ITEM none
+  CHOICES 2
+  LABEL Play some video games.
+    SCENE Man this is fun, who needs school!
+    HP -10
+    LOOT 4
+    ITEM GTA6
+    CHOICES 0
+  LABEL Get ready for school.
+    SCENE Breakfast time! But what to eat?
+    HP 0
+    LOOT 0
+    ITEM none
+    CHOICES 3
+    LABEL Bowl of Cereal
+      SCENE Capt'n Crunch has never tasted so good!
+      HP 2
+      LOOT 1
+      ITEM cereal
+      CHOICES 1
+      LABEL Finish getting ready for school.
+        SCENE Bakcpack: Check, Lunch: Check, Homework: Check
+        HP 0
+        LOOT 3
+        ITEM full-backpack
+        CHOICES 2
+        LABEL Take the Bus like normal
+          SCENE Same old same old bus
+          HP -1
+          LOOT 0
+          ITEM none
+          CHOICES 0
+        LABEL Skateboard because youre cool like that
+          SCENE Hell yeah! You shred on your way to school.
+          HP 2
+          LOOT 8
+          ITEM aura
+          CHOICES 0
+    LABEL Grab food on the way to school.
+      SCENE Nothing hits quite like Mc Donald's breakfast. Too bad you forgot you backpack and homework!
+      HP -2
+      LOOT 1
+      ITEM McDonalds
+      CHOICES 1
+      LABEL Too late, better hurry to school.
+        SCENE You're on time, but without your packback...
+        HP -5
+        LOOT 0
+        ITEM bad-report-card
+        CHOICES 0
+    LABEL 3-Course continental breakfast
+      SCENE Man that sure was yummy. Too bad that took so long, looks like you wont make it to school today.
+      HP -5
+      LOOT 3
+      ITEM full-belly
+      CHOICES 0
