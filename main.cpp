@@ -8,10 +8,10 @@ int main(int argc, char* argv[]) {
     //   ./adventure bee_movie.txt   ->   argc is 2
     // argv holds those words.
     //   argv[0] is "./adventure"    argv[1] is "bee_movie.txt"
-    // if (argc != 2) {
-    //     std::cout << "Usage: ./adventure <story_file>" << std::endl;
-    //     return 1;
-    // }
+    if (argc != 2) {
+        std::cout << "Usage: ./adventure <story_file>" << std::endl;
+        return 1;
+    }
     //
     // // ===================== PART 0: runs as-is =====================
     // // Opens the story file named in argv[1] and prints every line.
