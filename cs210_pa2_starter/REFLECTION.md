@@ -19,7 +19,8 @@ TODOS
       We first check if our current scene = nullptr and return -1 so that empty stories have a height of -1 and to ensure when were outside the tree, we don't count height. Then we use a temp variable to compare and save the largest height of all the children by recursively calling height on each of the children. Finally, we return our maximum height found + 1 to account for the height of the current node as well. O(n) because we iterate through ALL the scenes that are descendants of the current scene. 
    9. O(n)
         This is nearly identical to TODO 2, its effectivity a recursive call of delete on each scene, moving down through the tree deleting everything on its way. We have to set root_ to nullptr after to ensure our pointer isn't dangling and pointing to freed memory. This leaves the tree "empty" as the instructions say to
-   10. O()
+   10. O(N)
+      
    11. O()
    12. O()
    13. O()
