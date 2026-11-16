@@ -12,15 +12,30 @@ class StoryTree {
 private:
     Scene<T>* root_;
 
-    // TODO 6: how many scenes are in the story that starts at scene?
+    // TODO 6: how many scenes are in the story that starts at scene? -----------DONE-----------
     // An empty story has 0 scenes.
     int countScenes(Scene<T>* scene) const {
-        return 0;
+        if (scene == nullptr) {
+            return 0;
+        }
+        return 1 + countScenes(scene->getChoice(0))
+                 + countScenes(scene->getChoice(1))
+                 + countScenes(scene->getChoice(2));
     }
 
-    // TODO 7: how many endings are in the story that starts at scene?
+    // TODO 7: how many endings are in the story that starts at scene? -----------DONE-----------
     int countEndings(Scene<T>* scene) const {
-        return 0;
+        if (scene == nullptr) {
+            return 0;
+        }
+        if (scene->isEnding()) {
+            return 1;
+        }
+        else {
+            return countEndings(scene->getChoice(0))
+                 + countEndings(scene->getChoice(1))
+                 + countEndings(scene->getChoice(2));
+        }
     }
 
     // TODO 8: the most choices a player can make on the way to an ending,
